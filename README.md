@@ -1,67 +1,47 @@
-# 🔐 Password Checker
+# Password Checker
 
-A simple Python command-line application that evaluates password strength and provides security improvement suggestions based on common cybersecurity best practices.
+A Python command-line tool that evaluates password strength and suggests concrete improvements based on common security best practices. Input is hidden with `getpass`, so the password is never echoed or stored.
 
 ## Features
 
-- Check password length
-- Detect uppercase and lowercase letters
-- Detect numbers
-- Detect special characters
-- Identify common weak passwords
-- Generate a password strength score
-- Provide improvement suggestions
-- Secure password input using `getpass`
+- Scores length, digits, uppercase and lowercase letters, and symbols
+- Penalizes long runs of repeated characters
+- Flags commonly used passwords
+- Returns a score out of 8 with a Weak, Medium, or Strong rating
+- Lists specific suggestions to improve the password
 
-## Technologies Used
-
-- Python 3
-- Regular Expressions (`re`)
-- getpass
-
-## Installation
-
-Clone the repository:
+## Usage
 
 ```bash
 git clone https://github.com/Marouane2005/password-checker.git
-```
-
-Navigate to the project:
-
-```bash
 cd password-checker
-```
-
-Run the program:
-
-```bash
 python password_checker.py
 ```
 
-## Example Output
+Requires Python 3 and no third-party packages.
+
+## Example
 
 ```
-Password Strength: Strong (9/10)
-
-Suggestions:
-- Great! Your password follows recommended security practices.
+Password Strength Checker (input is hidden)
+Enter your password:
+Score: 8/8 — Strong
 ```
 
-## Screenshot
+## How scoring works
 
-![Password Checker](screenshot.png)
+| Check | Points |
+| --- | --- |
+| Length of 12 or more (8 or more) | 2 (1) |
+| Contains a digit | 1 |
+| Contains an uppercase letter | 1 |
+| Contains a lowercase letter | 1 |
+| Contains a symbol | 1 |
+| Character variety (no long repeats) | 1 |
+| Not in the common-password list | 1 |
 
-## Learning Objectives
-
-This project was built to practice:
-
-- Python programming
-- Regular expressions
-- Cybersecurity fundamentals
-- Password security best practices
-- CLI application development
+The total is capped at 8. A score of 7 or more is Strong, 4 to 6 is Medium, and below 4 is Weak.
 
 ## License
 
-This project is licensed under the MIT License.
+Released under the [MIT License](LICENSE).

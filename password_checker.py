@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 import re
 import getpass
 
@@ -67,7 +67,11 @@ def classify(score: int) -> str:
 
 def main():
     print("Password Strength Checker (input is hidden)")
-    pwd = getpass.getpass("Enter your password: ")
+    try:
+        pwd = getpass.getpass("Enter your password: ")
+    except (EOFError, KeyboardInterrupt):
+        print("\nNo password entered. Exiting.")
+        return
     if not pwd:
         print("No password entered. Exiting.")
         return

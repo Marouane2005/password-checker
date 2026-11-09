@@ -12,13 +12,17 @@ A Python command-line tool that evaluates password strength and suggests concret
 
 ## Usage
 
+Requires Python 3. The script uses only the standard library, so there is nothing to install.
+
 ```bash
 git clone https://github.com/Marouane2005/password-checker.git
 cd password-checker
-python password_checker.py
+python3 password_checker.py
 ```
 
-Requires Python 3 and no third-party packages.
+The program prompts for a password and does not echo what you type. Enter a password and press Enter. It prints a score out of 8, a Weak, Medium, or Strong rating, and suggestions when the password can be improved.
+
+If `python3` is available as `python` on your system, `python password_checker.py` works the same way.
 
 ## Example
 
